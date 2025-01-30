@@ -1,5 +1,10 @@
+//import java.util*;
+
 public class Main {
     public static void main(String[] args) {
+
+        menu selectMenu = new menu();
+
         // สร้างออบเจ็กต์จาก StudentRegistration
         Registration studentReg = new StudentRegistration("John Doe", "Computer Science");
         studentReg.registerStudent("John Doe", "Computer Science");
