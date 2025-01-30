@@ -1,3 +1,5 @@
+package src;
+
 class StudentRegistration extends Registration {
     private String studentName;
     private String courseName;

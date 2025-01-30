@@ -1,3 +1,4 @@
+package src;
 // คลาส Abstract สำหรับการลงทะเบียนเรียน
 abstract class Registration {
     // เมธอดที่มีการกำหนดการทำงานบางส่วน (สามารถใช้ได้ทันที)

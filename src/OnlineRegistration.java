@@ -1,3 +1,4 @@
+package src;
 // คลาสที่สืบทอดจาก Abstract Class Registration
 class OnlineRegistration extends Registration {
     private String studentName;
