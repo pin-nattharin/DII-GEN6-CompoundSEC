@@ -1,18 +1,27 @@
-//import java.util*;
-
 public class Main {
+    public static void testCard(Card card) {
+        //card.accessArea();
+        //card.accessSystem();
+    }
+
     public static void main(String[] args) {
+        // สร้างตัวแปรประเภทต่างๆ
+        Card employee = new EmployeeCard();
+        Card manager = new ManagerCard();
+        Card admin = new AdminCard();
+        Card visitor = new VisitorCard();
 
-        menu selectMenu = new menu();
+        // ทดสอบการใช้งาน
+        System.out.println("Employee Card:");
+        testCard(employee);
 
-        // สร้างออบเจ็กต์จาก StudentRegistration
-        Registration studentReg = new StudentRegistration("John Doe", "Computer Science");
-        studentReg.registerStudent("John Doe", "Computer Science");
-        studentReg.displayDetails();
+        System.out.println("\nManager Card:");
+        testCard(manager);
 
-        // สร้างออบเจ็กต์จาก OnlineRegistration
-        Registration onlineReg = new OnlineRegistration("Jane Doe", "Data Science");
-        onlineReg.registerStudent("Jane Doe", "Data Science");
-        onlineReg.displayDetails();
+        System.out.println("\nAdmin Card:");
+        testCard(admin);
+
+        System.out.println("\nVisitor Card:");
+        testCard(visitor);
     }
 }
