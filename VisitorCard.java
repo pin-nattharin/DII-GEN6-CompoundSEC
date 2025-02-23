@@ -1,4 +1,8 @@
 class VisitorCard extends Card {
+    public VisitorCard() {
+        super(name, id);
+    }
+
     //@Override
     public void accessArea() {
         System.out.println("Accessing: Lobby, Guest Room, Meeting Room (by appointment)");

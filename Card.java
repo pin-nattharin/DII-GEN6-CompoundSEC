@@ -10,6 +10,10 @@ public class Card {
         this.employeeID = id;
     }
 
+    public Card() {
+
+    }
+
     // Getter สำหรับเข้าถึงข้อมูลชื่อพนักงาน
     public String getEmployeeName() {
 
