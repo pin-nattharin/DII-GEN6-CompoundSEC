@@ -1,27 +1,32 @@
 public class Main {
-    public static void testCard(Card card) {
-        //card.accessArea();
-        //card.accessSystem();
-    }
-
     public static void main(String[] args) {
-        // สร้างตัวแปรประเภทต่างๆ
-        Card employee = new EmployeeCard();
-        Card manager = new ManagerCard();
-        Card admin = new AdminCard();
-        Card visitor = new VisitorCard();
+        // สร้างอ็อบเจ็กต์ของคลาสต่าง ๆ
+        Employee emp1 = new GeneralEmployee("E001", "John Doe");
+        Employee emp2 = Manager.getInstance("M001", "Jane Smith");
+        Employee emp3 = new Admin("A001", "Alice Johnson");
+        AccessControl intern = new Intern("I001", "Bob Brown");
 
-        // ทดสอบการใช้งาน
-        System.out.println("Employee Card:");
-        testCard(employee);
+        // ใช้ Upcasting เพื่อจัดการพนักงานประเภทต่าง ๆ เป็นประเภทเดียวกัน
+        Employee[] employees = { emp1, emp2, emp3 };
 
-        System.out.println("\nManager Card:");
-        testCard(manager);
+        // ตรวจสอบสิทธิ์การเข้าถึง
+        for (Employee emp : employees) {
+            emp.displayInfo();
+            emp.checkAccess("Floor 1");
+            emp.checkAccess("Server Room");
+        }
 
-        System.out.println("\nAdmin Card:");
-        testCard(admin);
+        // ตรวจสอบสิทธิ์การเข้าถึงของ Intern
+        intern.checkAccess("Floor 1");
 
-        System.out.println("\nVisitor Card:");
-        testCard(visitor);
+        // ใช้ Decorator Pattern เพื่อเพิ่มเงื่อนไขการจำกัดเวลา
+        AccessControl timeBasedAccess = new TimeBasedAccessDecorator(intern);
+        timeBasedAccess.checkAccess("Floor 1");
+
+        // เรียกใช้เมธอดเฉพาะของ Manager
+        if (emp2 instanceof Manager) {
+            Manager manager = (Manager) emp2;  // Downcasting
+            manager.conductMeeting();
+        }
     }
 }
