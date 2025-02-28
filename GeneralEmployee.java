@@ -7,12 +7,8 @@ public class GeneralEmployee extends Employee {
     @Override
     public boolean checkAccess(String area) {
         // พนักงานทั่วไปสามารถเข้าถึงได้เฉพาะชั้น 1 และห้องทั่วไป
-        if (area.equals("Floor 1") || area.equals("Room 101")) {
-            System.out.println("Access granted for General Employee at " + area);
-            return true;
-        } else {
-            System.out.println("Access denied for General Employee at " + area);
-            return false;
-        }
+        boolean isGranted = area.equals("Floor 1") || area.equals("Room 101");
+        logAccess(area, isGranted);  // บันทึกการเข้าถึง
+        return isGranted;
     }
 }

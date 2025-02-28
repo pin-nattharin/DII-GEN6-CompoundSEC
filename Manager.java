@@ -19,7 +19,7 @@ public class Manager extends Employee {
     @Override
     public boolean checkAccess(String area) {
         // ผู้จัดการสามารถเข้าถึงได้ทุกพื้นที่
-        System.out.println("Access granted for Manager at " + area);
+        logAccess(area, true);  // บันทึกการเข้าถึง
         return true;
     }
 
