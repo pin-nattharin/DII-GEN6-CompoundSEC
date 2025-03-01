@@ -7,7 +7,7 @@ import java.util.Base64;
 public class AccessCard {
     private String cardId;
     private String employeeId;
-    private String encryptedData;
+    private String encryptedData; // ข้อมูลของบัตรที่ถูกเข้ารหัส
 
     // คีย์สำหรับการเข้ารหัส (ควรเก็บคีย์นี้ในที่ปลอดภัย)
     private static final String SECRET_KEY = "ThisIsASecretKey";
