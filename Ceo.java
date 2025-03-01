@@ -1,6 +1,17 @@
 public class Ceo extends Employee {
+    // Singleton Pattern
+    private static Ceo instance;
+
     public Ceo(String id, String name) {
         super(id, name, "Ceo");
+    }
+
+    // เมธอด static เพื่อให้เข้าถึงอินสแตนซ์เดียวของคลาส
+    public static synchronized Ceo getInstance(String id, String name) {
+        if (instance == null) {
+            instance = new Ceo(id, name);
+        }
+        return instance;
     }
 
     // Override เมธอด checkAccess
