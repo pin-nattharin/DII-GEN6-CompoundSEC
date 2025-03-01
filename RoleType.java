@@ -1,4 +1,4 @@
 // 🔹 RoleType Enum
 enum RoleType {
-    INTERN, GENERALEMPLOYEE, CEO, MANAGER
+    INTERN, GENERAL_EMPLOYEE, CEO, MANAGER
 }

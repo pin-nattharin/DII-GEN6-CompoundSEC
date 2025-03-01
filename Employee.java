@@ -16,7 +16,7 @@ public abstract class Employee implements AccessStrategy {
         this.name = name;
         this.role = role;
         this.accessStrategy = strategy;
-        this.accessCard = new AccessCard("CARD_" + id, id);  // สร้าง AccessCard ด้วย Multi-Facades ID
+        this.accessCard = new AccessCard("CARD_" + id, role);  // สร้าง AccessCard ด้วย Multi-Facades ID
         this.accessLogs = new ArrayList<>();
     }
 
