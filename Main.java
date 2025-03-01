@@ -13,6 +13,7 @@ public class Main {
         for (Employee emp : employees) {
             emp.displayInfo();
             emp.checkAccess("Floor 1");
+            emp.checkAccess("Floor 2");
             emp.checkAccess("Server Room");
             System.out.println("----------------------------------------------------------------------------------------");
         }

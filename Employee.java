@@ -6,6 +6,7 @@ public abstract class Employee implements AccessControl {
     private String id;
     private String name;
     private String role;
+    private AccessCard accessCard;  // เพิ่ม AccessCard
     private List<String> accessLogs;  // บันทึกการเข้าถึง
 
     // Constructor
@@ -13,6 +14,7 @@ public abstract class Employee implements AccessControl {
         this.id = id;
         this.name = name;
         this.role = role;
+        this.accessCard = new AccessCard("CARD_" + id, id);  // สร้าง AccessCard ด้วย Multi-Facades ID
         this.accessLogs = new ArrayList<>();
     }
 
@@ -47,9 +49,14 @@ public abstract class Employee implements AccessControl {
         System.out.println("ID: " + id + ", Name: " + name + ", Role: " + role);
     }
 
+    // เมธอดตรวจสอบความถูกต้องของบัตร
+    public boolean isCardValid() {
+        return accessCard.isValid();
+    }
+
     // เมธอดบันทึกการเข้าถึง
     public void logAccess(String area, boolean isGranted) {
-        String logEntry = "Card ID: " + id + ", Area: " + area + ", Access: " + (isGranted ? "Granted" : "Denied") + ", Time: " + java.time.LocalDateTime.now();
+        String logEntry = "Card ID: " + accessCard.getCardId() + ", Employee ID: " + accessCard.getEmployeeId() + ", Area: " + area + ", Access: " + (isGranted ? "Granted" : "Denied") + ", Time: " + java.time.LocalDateTime.now();
         accessLogs.add(logEntry);
         System.out.println(logEntry);
     }

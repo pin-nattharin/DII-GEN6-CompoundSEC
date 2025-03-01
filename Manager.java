@@ -18,6 +18,12 @@ public class Manager extends Employee {
     // Override เมธอด checkAccess
     @Override
     public boolean checkAccess(String area) {
+        // ตรวจสอบความถูกต้องของบัตรก่อนอนุญาตให้เข้าถึง
+        if (!isCardValid()) {
+            System.out.println("Access denied: Invalid card");
+            logAccess(area, false);
+            return false;
+        }
         // ผู้จัดการสามารถเข้าถึงได้ทุกพื้นที่
         logAccess(area, true);  // บันทึกการเข้าถึง
         return true;

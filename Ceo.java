@@ -6,6 +6,12 @@ public class Ceo extends Employee {
     // Override เมธอด checkAccess
     @Override
     public boolean checkAccess(String area) {
+        // ตรวจสอบความถูกต้องของบัตรก่อนอนุญาตให้เข้าถึง
+        if (!isCardValid()) {
+            System.out.println("Access denied: Invalid card");
+            logAccess(area, false);
+            return false;
+        }
         // Ceo สามารถเข้าถึงได้ทุกพื้นที่ รวมถึงห้องพิเศษ
         boolean isGranted = true;
         if (area.equals("Server Room")) {
