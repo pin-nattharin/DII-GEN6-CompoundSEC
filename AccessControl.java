@@ -1,6 +1,6 @@
 import java.nio.channels.FileLock;
 
 public interface AccessControl {
-    boolean checkAccess(String area);
+    boolean checkAccess(String floor, String room);
 
 }

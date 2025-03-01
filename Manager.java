@@ -1,10 +1,10 @@
 public class Manager extends Employee {
-    // Singleton Pattern
+    // Singleton Pattern (Override ไม่ให้สร้าง Manager ซ้ำ)
     private static Manager instance;
 
     // Constructor เป็น private เพื่อป้องกันการสร้างอินสแตนซ์จากภายนอก
     private Manager(String id, String name) {
-        super(id, name, "Manager");
+        super(id, name, RoleType.MANAGER, new ManagerAccess());
     }
 
     // เมธอด static เพื่อให้เข้าถึงอินสแตนซ์เดียวของคลาส
@@ -13,24 +13,5 @@ public class Manager extends Employee {
             instance = new Manager(id, name);
         }
         return instance;
-    }
-
-    // Override เมธอด checkAccess
-    @Override
-    public boolean checkAccess(String area) {
-        // ตรวจสอบความถูกต้องของบัตรก่อนอนุญาตให้เข้าถึง
-        if (!isCardValid()) {
-            System.out.println("Access denied: Invalid card");
-            logAccess(area, false);
-            return false;
-        }
-        // ผู้จัดการสามารถเข้าถึงได้ทุกพื้นที่
-        logAccess(area, true);  // บันทึกการเข้าถึง
-        return true;
-    }
-
-    // เมธอดเฉพาะของ Manager
-    public void conductMeeting() {
-        System.out.println(getName() + " is conducting a meeting.");
     }
 }

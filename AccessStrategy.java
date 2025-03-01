@@ -1,3 +1,3 @@
-public interface AccessStrategy {
-    boolean checkAccess(String area);
+public interface AccessStrategy { // Interface สำหรับ Strategy Pattern
+    boolean checkAccess(int floor, RoomType room);
 }
