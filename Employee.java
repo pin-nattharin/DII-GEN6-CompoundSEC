@@ -50,7 +50,7 @@ public abstract class Employee implements AccessStrategy {
 
     // เมธอดบันทึกการเข้าถึง
     public void logAccess(int floor, RoomType room, boolean isGranted) {
-        String logEntry = "Card ID: " + accessCard.getCardId() + ", Employee ID: " + accessCard.getEmployeeId() + ", Floor: " + floor +", Room: " +room + ", Access: " + (isGranted ? "Granted" : "Denied") + ", Time: " + java.time.LocalDateTime.now();
+        String logEntry = "Card ID: " + accessCard.getCardId() + ", Role: " + accessCard.getRole() + ", Floor: " + floor +", Room: " +room + ", Access: " + (isGranted ? "Granted" : "Denied") + ", Time: " + java.time.LocalDateTime.now();
         accessLogs.add(logEntry);
         System.out.println(logEntry);
     }
