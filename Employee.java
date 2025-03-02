@@ -38,10 +38,6 @@ public abstract class Employee implements AccessStrategy {
         this.id = id;
     }
 
-    // เมธอดทั่วไปที่ใช้ร่วมกัน
-    public void displayInfo() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Role: " + role);
-    }
 
     // เมธอดตรวจสอบความถูกต้องของบัตร
     public boolean isCardValid() {
