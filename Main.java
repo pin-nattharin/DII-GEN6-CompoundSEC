@@ -20,10 +20,10 @@ public class Main {
 
         switch (roleChoice) {
             case 1:
-                employee = new Ceo(id, name);
+                employee = Ceo.getInstance(id, name);
                 break;
             case 2:
-                employee = Manager.getInstance(id, name);
+                employee = new Manager(id, name);
                 break;
             case 3:
                 employee = new GeneralEmployee(id, name);
