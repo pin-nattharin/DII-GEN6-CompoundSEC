@@ -1,4 +1,4 @@
-// 🔹 Strategy: Intern เข้าได้เฉพาะ Lobby และ Office ที่ Low Floor เท่านั้น
+// Strategy: Intern เข้าได้เฉพาะ Lobby และ Office ที่ Low Floor เท่านั้น
 class InternAccess implements AccessStrategy {
     @Override
     public boolean checkAccess(int floor, RoomType room) {

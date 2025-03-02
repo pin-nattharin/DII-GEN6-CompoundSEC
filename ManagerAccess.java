@@ -1,4 +1,4 @@
-// 🔹 Strategy: Manager เข้าได้เฉพาะ Medium และ Low Floor
+// Strategy: Manager เข้าได้เฉพาะ Medium และ Low Floor
 class ManagerAccess implements AccessStrategy {
     @Override
     public boolean checkAccess(int floor, RoomType room) {

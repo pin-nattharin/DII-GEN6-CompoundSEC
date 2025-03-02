@@ -4,3 +4,4 @@ class Intern extends Employee {
         super(id, name, RoleType.INTERN, new InternAccess());
     }
 }
+
