@@ -6,6 +6,7 @@ import java.util.Base64;
 
 public class AccessCard {
     private String cardId;
+    private String name;
     private String employeeId;
     private RoleType role;
     private String encryptedData; // ข้อมูลของบัตรที่ถูกเข้ารหัส
@@ -13,9 +14,9 @@ public class AccessCard {
     // คีย์สำหรับการเข้ารหัส (ควรเก็บคีย์นี้ในที่ปลอดภัย)
     private static final String SECRET_KEY = "ThisIsASecretKey";
 
-    public AccessCard(String cardId, RoleType role ) {
+    public AccessCard(String cardId, String name, RoleType role ) {
         this.cardId = cardId;
-        //this.employeeId = employeeId;
+        this.name = name;
         this.role = role;
         this.encryptedData = encryptData(cardId + "|" + employeeId);
     }
@@ -82,6 +83,10 @@ public class AccessCard {
     // Getter methods
     public String getCardId() {
         return cardId;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getEmployeeId() {

@@ -17,13 +17,13 @@ public class CardManager {
     }
 
     // เพิ่มบัตรใหม่
-    public void addCard(String cardID, RoleType role) {
+    public void addCard(String cardID,String name, RoleType role) {
         if (cardDatabase.containsKey(cardID)) {
             System.out.println("❌ Card already exists!");
         } else {
-            AccessCard newCard = new AccessCard(cardID, role);
+            AccessCard newCard = new AccessCard(cardID, name, role);
             cardDatabase.put(cardID, newCard);
-            System.out.println("✅ Card added: " + cardID + " with role " + role);
+            System.out.println("(✅ Card added) CardID: " + cardID + " Name: "+name+ " with role " + role);
         }
     }
 

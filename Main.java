@@ -5,10 +5,26 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // รับข้อมูลพนักงาน
-        System.out.print("Enter Employee ID: ");
-        String id = scanner.nextLine();
-        System.out.print("Enter Employee Name: ");
-        String name = scanner.nextLine();
+        //System.out.print("Enter Employee ID: ");
+        //String id = scanner.nextLine();
+        //System.out.print("Enter Employee Name: ");
+        //String name = scanner.nextLine();
+
+        Employee employee1 = Ceo.getInstance("C001","Bob");
+        Employee employee2 = new Manager("M001","Kim");
+        Employee employee3 = new GeneralEmployee("G001","James");
+        Employee employee4 = new Intern("I001","Kate");
+
+        // สร้าง CardManager
+        CardManager cardManager = CardManager.getInstance();
+
+        // สร้างบัตรและเพิ่มลงใน CardManager
+        cardManager.addCard(employee1.getId(), employee1.getName(), employee1.getRole());
+        cardManager.addCard(employee2.getId(), employee2.getName(), employee2.getRole());
+        cardManager.addCard(employee3.getId(), employee3.getName(), employee3.getRole());
+        cardManager.addCard(employee4.getId(), employee4.getName(), employee4.getRole());
+
+        Employee employee = null;
 
         // เลือกบทบาท
         System.out.println("Choose Role:");
@@ -16,20 +32,18 @@ public class Main {
         System.out.print("Enter Role: ");
         int roleChoice = scanner.nextInt();
 
-        Employee employee = null;
-
         switch (roleChoice) {
             case 1:
-                employee = Ceo.getInstance(id, name);
+                employee = employee1;
                 break;
             case 2:
-                employee = new Manager(id, name);
+                employee = employee2;
                 break;
             case 3:
-                employee = new GeneralEmployee(id, name);
+                employee = employee3;
                 break;
             case 4:
-                employee = new Intern(id, name);
+                employee = employee4;
                 break;
             default:
                 System.out.println("Invalid Role!");
@@ -76,7 +90,6 @@ public class Main {
         //scanner.close();
 
         while (true) {
-            CardManager cardManager = CardManager.getInstance();
             System.out.println("\n1. Add Card\n2. Modify Card Permission\n3. Revoke Card\n4. Check Access\n5. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
@@ -88,9 +101,11 @@ public class Main {
                 case 1:
                     System.out.print("Enter Card ID: ");
                     String newCardID = scanner.nextLine();
+                    System.out.print("Enter Employee Name: ");
+                    String name = scanner.nextLine();
                     System.out.print("Enter Role (CEO, MANAGER, GENERAL_EMPLOYEE, INTERN): ");
                     RoleType newRole = RoleType.valueOf(scanner.nextLine().toUpperCase());
-                    cardManager.addCard(newCardID, newRole);
+                    cardManager.addCard(newCardID, name, newRole);
                     break;
                 case 2:
                     System.out.print("Enter Card ID to Modify: ");
